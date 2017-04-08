@@ -11,27 +11,35 @@ h1 {
         font-size: 100px;
 
         ul {
-           list-style: none;
-            li { margin: 0;}
+            list-style: none;
+
+            li {
+                margin: 0;
+            }
         }
     }
 }
-
-
-
 @mixin margins ($margintop , $marginbottom) {
- a {
-   margin-top:$margintop;
-   margin-bottom: $marginbottom;
- }
+    .box {
+        margin-top: $margintop;
+        margin-bottom: $marginbottom;
+    }
+}
+@mixin paddings ($paddingtop , $paddingbottom) {
+    margin-top: $paddingtop;
+    margin-bottom: $paddingbottom;
 }
 
 .block {
-  @include margins(100px, 300px);
+    @include margins(100px, 300px);
 }
-
 
 .block1 {
-  @include margins(10px, 20px);
-
+    @include margins(10px, 20px);
 }
+// run?
+.box1 {
+    @include paddings (20px,30px);
+}
+
+@include margins (20px,30px);
