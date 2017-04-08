@@ -1,0 +1,1 @@
+$("button").click(function(){$("#div1").fadeIn(),$("#div2").fadeIn("slow"),$("#div3").fadeIn(3e3)}),$(function(){if(2==window.devicePixelRatio)for(var a=$("img.retina"),b=0;b<a.length;b++){var c=a[b].src.substr(-4),d=a[b].src.substr(0,a[b].src.length-4);d+="@2x"+c,a[b].src=d}});
