@@ -1,11 +1,37 @@
 //var
-
-$fontsize : 200px;
-$marignleft: 200px;
-$color : #333;
+@import "var";
+@import "mixins/mixin";
 
 h1 {
-  color: $color;
-  font-size: $fontsize;
-  margin-left: $marignleft;
+    color: $color;
+    font-size: $fontsize;
+    margin-left: $marignleft;
+
+    span {
+        font-size: 100px;
+
+        ul {
+           list-style: none;
+            li { margin: 0;}
+        }
+    }
+}
+
+
+
+@mixin margins ($margintop , $marginbottom) {
+ a {
+   margin-top:$margintop;
+   margin-bottom: $marginbottom;
+ }
+}
+
+.block {
+  @include margins(100px, 300px);
+}
+
+
+.block1 {
+  @include margins(10px, 20px);
+
 }

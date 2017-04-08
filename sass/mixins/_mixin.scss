@@ -1,0 +1,6 @@
+@mixin margins ($margintop , $marginbottom) {
+ a {
+   margin-top:$margintop;
+   margin-bottom: $marginbottom;
+ }
+}
