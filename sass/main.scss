@@ -1,4 +1,11 @@
+//var
+
+$fontsize : 200px;
+$marignleft: 200px;
+$color : #333;
+
 h1 {
-  color: rgb(168, 25, 141);
-  font-size: 100px;
+  color: $color;
+  font-size: $fontsize;
+  margin-left: $marignleft;
 }
