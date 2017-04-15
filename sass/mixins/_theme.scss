@@ -1,0 +1,12 @@
+@mixin theme-color ($color) {
+     @if $color == red{
+        background-color: #f00;
+        color: rgb(221, 67, 10);
+        @content
+    }
+    @else if $color == yellow {
+        background-color: yellow;
+        color: rgb(46, 29, 187);
+        @content
+    }
+}

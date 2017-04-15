@@ -1,7 +1,16 @@
 //var
 @import "var";
 @import "mixins/mixin";
-//@import "../libs/font-awesome/scss/font-awesome";
+@import "mixins/theme";
+@import "mixins/push";
+
+// @import "large";
+// @import "medium";
+// @import "small";
+
+
+
+ //@import "../libs/font-awesome/scss/font-awesome";
 //@import "../libs/bootstrap-sass/assets/stylesheets/bootstrap";
 
 h1 {
@@ -40,122 +49,224 @@ h1 {
     @include margins(10px, 20px);
 }
 // run?
+
 .box1 {
     @include paddings (20px,30px);
 }
-
-@include margins (20px,30px);
-
-
-//extend
+@include margins (20px,30px); //extend
 //佔位選擇器
 
 %btn-small {
-  width: 100px;
-  height: 50px;
-  padding-top: 100px;
-  text-align: center;
-  box-sizing: border-box;
+    width: 100px;
+    height: 50px;
+    padding-top: 100px;
+    text-align: center;
+    box-sizing: border-box;
 }
-
 
 %btn-medium {
-  width: 200px;
-  height: 100px;
-  padding-top: 100px;
-  text-align: center;
-  box-sizing: border-box;
+    width: 200px;
+    height: 100px;
+    padding-top: 100px;
+    text-align: center;
+    box-sizing: border-box;
 }
-
 
 %btn-large {
-  width: 300px;
-  height: 150px;
-  padding-top: 150px;
-  text-align: center;
-  box-sizing: border-box;
+    width: 300px;
+    height: 150px;
+    padding-top: 150px;
+    text-align: center;
+    box-sizing: border-box;
 }
 
-
-.button_1  {
-   @extend  %btn-small ;
-   background-color: rgb(205, 231, 0);
-   color:#fff;
+.button_1 {
+    @extend %btn-small;
+    background-color: rgb(205, 231, 0);
+    color: #fff;
 }
 
 .button_2 {
-  @extend  %btn-medium ;
-   background-color: rgb(250, 164, 19);
-   color: #fff;
-
+    @extend %btn-medium;
+    background-color: rgb(250, 164, 19);
+    color: #fff;
 }
+
 .button_3 {
-  @extend  %btn-large ;
-   background-color:rgb(37, 52, 150);
-   color: #fff;
-   font-size: 1.5em;
+    @extend %btn-large;
+    background-color: rgb(37, 52, 150);
+    color: #fff;
+    font-size: 1.5em;
 }
-
 
 a.btn {
-   width: 100px;
+    width: 100px;
 }
 
 a .btn {
-  width: 100px;
+    width: 100px;
 }
-
 // 同層選擇器
+
 a {
-  .btn {width: 100px;}
+    .btn {
+        width: 100px;
+    }
 }
 
 a {
- &.btn{
-   width: 100px;}
+    &.btn {
+        width: 100px;
+    }
 }
 
-
 a {
-  &:hover{
-    color: rgb(17, 138, 108);
-  }
+    &:hover {
+        color: rgb(17, 138, 108);
+    }
 }
 
 .box {
-  &::before {
-   content: '';
- }
-  &::after {
-   content: '';
+    &::before {
+        content: '';
+    }
 
-      }
+    &::after {
+        content: '';
+    }
 }
+
 .btn {
-   @extend .box;
+    @extend .box;
 }
-
 //跳脫字元
-
-$num : 10px;
+$num: 10px;
 
 .box_02_#{$num} {
- width: $num;
+    width: $num;
 }
-
-$direction : right ;
+$direction: right;
 
 .box_#{$direction} {
-   float: $direction;
-  &::after {
-    content: '';
-    clear: both;
-  }
+    float: $direction;
+
+    &::after {
+        content: '';
+        clear: both;
+    }
 }
-
-
-$pushnum :  200px;
+$pushnum: 200px;
 
 .push-#{$pushnum} {
-  margin-left: $pushnum;
+    margin-left: $pushnum;
 }
+//加減乘除
+$i: 100px;
+
+.header {
+    width: (100px / 10px);
+    font: 16px / 24px;
+}
+//
+$font-base: 14px;
+
+h1 {
+    font-size: $font-base * 3;
+}
+
+h2 {
+    //四捨五入
+    font-size: round($font-base * 2.5);
+    //無條件進入
+    font-size: ceil($font-base * 2.5);
+    //無條件捨去
+    font-size: floor($font-base * 2.5);
+}
+
+h3 {
+    font-size: round($font-base * 2);
+}
+
+h4 {
+    font-size: $font-base * 1.5;
+}
+
+h5 {
+    font-size: $font-base * 1;
+}
+// if else
+$width: 120px;
+
+.wrapper {
+    @if $width >= 100px {
+        width: $width;
+    }
+    @else {
+        width: $width * 2;
+    }
+}
+
+body {
+    .footer {
+        @include theme-color(yellow) {
+            padding: 100px;
+        };
+    }
+    width: 100px;
+}
+// mixin null值
+@mixin margin( $margintop:null , $marginleft:null, $marginbottom:null ,$marginright:130px) {
+    margin: $margintop $marginright $marginbottom $marginleft;
+}
+
+.blog {
+    @include margin (10px ,20px , 30px ,30px);
+}
+// for迴圈
+@for $i from 1 through 5 {
+    .col_#{$i} {
+        width: 60px * $i;
+    }
+}
+// for 結合 mixin
+@include push(left,10);
+@include push (right,10);
+@mixin grid ($column) {
+     @for $i from 1 through $column{
+        .col-#{$i} {
+            width: ($i / $column) * 100%;
+        }
+    }
+}
+@include grid(12);
+//  media query
+@mixin rwd ($breakpoint) {
+    @if $breakpoint == "small" {
+        @media all and (max-width:$small) {
+             @content;
+        }
+    }
+
+    @else if $breakpoint == "medium" {
+        @media all and (min-width : $min-medium) and (max-width:$max-medium) {
+             @content;
+        }
+    }
+
+    @else if $breakpoint == "large" {
+        @media all and (min-width : $large) {
+             @content;
+        }
+    }
+}
+@include rwd(small) {
+    .box_rwd {
+        width: 100px;
+    }
+};
+ @include  rwd(large){
+   .box_rwd {
+       width: 200px;
+   }
+
+ };
