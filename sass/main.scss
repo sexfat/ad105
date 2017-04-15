@@ -153,7 +153,8 @@ $direction : right ;
   }
 }
 
-$pushnum :  100px;
+
+$pushnum :  200px;
 
 .push-#{$pushnum} {
   margin-left: $pushnum;
