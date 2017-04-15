@@ -9,11 +9,11 @@ h1 {
       h1 span ul li {
         margin: 0; }
 
-.block .box {
+.block .box, .block .btn {
   margin-top: 100px;
   margin-bottom: 300px; }
 
-.block1 .box {
+.block1 .box, .block1 .btn {
   margin-top: 10px;
   margin-bottom: 20px; }
 
@@ -21,6 +21,72 @@ h1 {
   margin-top: 20px;
   margin-bottom: 30px; }
 
-.box {
+.box, .btn {
   margin-top: 20px;
   margin-bottom: 30px; }
+
+.button_1 {
+  width: 100px;
+  height: 50px;
+  padding-top: 100px;
+  text-align: center;
+  box-sizing: border-box; }
+
+.button_2 {
+  width: 200px;
+  height: 100px;
+  padding-top: 100px;
+  text-align: center;
+  box-sizing: border-box; }
+
+.button_3 {
+  width: 300px;
+  height: 150px;
+  padding-top: 150px;
+  text-align: center;
+  box-sizing: border-box; }
+
+.button_1 {
+  background-color: #cde700;
+  color: #fff; }
+
+.button_2 {
+  background-color: #faa413;
+  color: #fff; }
+
+.button_3 {
+  background-color: #253496;
+  color: #fff;
+  font-size: 1.5em; }
+
+a.btn {
+  width: 100px; }
+
+a .btn {
+  width: 100px; }
+
+a .btn {
+  width: 100px; }
+
+a.btn {
+  width: 100px; }
+
+a:hover {
+  color: #118a6c; }
+
+.box::before, .btn::before {
+  content: ''; }
+.box::after, .btn::after {
+  content: ''; }
+
+.box_02_10px {
+  width: 10px; }
+
+.box_right {
+  float: right; }
+  .box_right::after {
+    content: '';
+    clear: both; }
+
+.push-100px {
+  margin-left: 100px; }
