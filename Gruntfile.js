@@ -3,12 +3,19 @@ module.exports = function(grunt) {
         //watch
         watch: {
             css: {
-                files: ['sass/*.scss'],
+                files: ['sass/*.scss' ,'sass/**/*.sass'],
                 tasks: ['sass']
             },
             html: {
-                files: ['*.html'],
+                files: ['*.html' ,'app/*.html'],
                 task: ['watchTask']
+            },
+            js : {
+              files : ['js/*.js']
+            },
+            bake: {
+                files: ['app/**/*.html'],
+                tasks: ['bake']
             }
         },
 
@@ -33,7 +40,8 @@ module.exports = function(grunt) {
                 bsFiles: {
                     src: [
                         'css/*.css',
-                        '*.html'
+                        '*.html',
+                        'js/*.js'
                     ]
                 },
                 options: {
@@ -45,6 +53,18 @@ module.exports = function(grunt) {
                 }
             }
         },
+
+        // html 樣板
+                bake: {
+                    build: {
+                        files: {
+                            "index.html": "app/index.html",
+                            "tween.html": "app/tween.html"
+                        }
+                    }
+                },
+
+
         //uglify
 
         uglify: {
@@ -62,8 +82,9 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-browser-sync');
     grunt.loadNpmTasks('grunt-contrib-uglify');
+    grunt.loadNpmTasks('grunt-bake');
 
     // define default task
-    grunt.registerTask('default', ['browserSync', 'watch']);
+    grunt.registerTask('default', ['browserSync', 'watch','bake']);
     grunt.registerTask('ok', ['uglify']);
 };

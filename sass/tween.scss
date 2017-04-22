@@ -1,0 +1,39 @@
+// base
+@import "../libs/bootstrap-sass/assets/stylesheets/bootstrap";
+
+
+// start
+body {
+    background-color: #000;
+    color: rgb(255, 255, 255);
+}
+
+
+.wrapper {
+  .section {
+    width: 100%;
+    height: 100vh;
+  }
+  .section01 {
+   .box {
+     margin-top: 100px;
+     width: 100px;
+     height: 100px;
+      &.red {
+       background-color: #f00;
+     }
+     &.blue {
+      background-color: blue;
+      }
+     }
+   }
+   .section02 {
+     .row {
+       padding-top: 150px;
+     }
+     background-color: #d12929;
+
+
+   }
+
+}

@@ -1,3 +1,12 @@
+.header ul {
+  height: 100px; }
+  .header ul li {
+    width: 200px; }
+    .header ul li a {
+      text-decoration: none; }
+      .header ul li a:hover {
+        color: #f00; }
+
 h1 {
   color: #999;
   font-size: 100px;
