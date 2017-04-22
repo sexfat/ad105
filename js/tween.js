@@ -59,22 +59,17 @@ var wp = new TimelineMax().staggerFromTo('.flow .item', 0.5, {
 
 
 
+//場景三
 
 
+var ourScene = new ScrollMagic.Scene({
+        triggerElement: "#section_02",
+        offset:'200px'
+    })
+    .setClassToggle('.logo','fadein')
+    .addIndicators()
+    .addTo(controller);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+ console.log('section03 ok');
 
 })
