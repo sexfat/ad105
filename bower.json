@@ -18,7 +18,6 @@
     "bower_components",
     "libs",
     "test"
-
   ],
   "dependencies": {
     "jquery": "^1.11.1",
@@ -34,6 +33,7 @@
     "polymer": "Polymer/polymer#^0.5"
   },
   "devDependencies": {
-    "font-awesome": "fontawesome#^4.6.3"
+    "font-awesome": "fontawesome#^4.6.3",
+    "hover": "^2.1.1"
   }
 }
